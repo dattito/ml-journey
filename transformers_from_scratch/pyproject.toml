@@ -7,7 +7,9 @@ requires-python = ">=3.13"
 dependencies = [
     "jupyter>=1.1.1",
     "nltk>=3.9.1",
+    "numpy>=2.3.1",
     "polars>=1.31.0",
     "torch>=2.7.1",
+    "torchinfo>=1.8.0",
     "tqdm>=4.67.1",
 ]
