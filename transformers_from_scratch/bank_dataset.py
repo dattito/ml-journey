@@ -40,7 +40,7 @@ class BankDataset(Dataset):
         self.word2index[word]
 
     def index_to_word(self, index: int):
-        self.index2word[index]
+        return self.index2word[index]
 
     def index2label(self, index: int):
         return ["Flussbank", "Geldbank", "Sitzbank"][index]
