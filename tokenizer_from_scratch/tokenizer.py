@@ -104,10 +104,9 @@ class Tokenizer:
         self.seps = seps
         self.stats = []
 
-    def tokenize(self, text: str, new_tokens: int) -> list[int]:
-        single = "0123456789 \n[]{}()\"'.,:;-_"
+    def fit(self, text: str, new_tokens: int) -> list[int]:
         content = [text]
-        for e in single:
+        for e in self.seps:
             content = split_sub(content, e)
 
         content_bytes = list(map(lambda x: list(map(int, x.encode("utf-8"))), content))
@@ -133,6 +132,26 @@ class Tokenizer:
             c += a
         return c
 
+    def tokenize(self, text: str) -> list[int]:
+        content = [text]
+        for e in self.seps:
+            content = split_sub(content, e)
+
+        content_bytes = list(map(lambda x: list(map(int, x.encode("utf-8"))), content))
+
+        tokens = [i for i in range(256)]
+        self.stats = [(sum(len(a) for a in content_bytes), len(tokens))]
+
+        for new_token, (to_be_replaced, _count) in self.mappings:
+            content_bytes = replace_sublist(
+                content_bytes, list(to_be_replaced), new_token
+            )
+
+        c = []
+        for a in content_bytes:
+            c += a
+        return c
+
     def revert(self, tokens: list[int]) -> str:
         a = [tokens]
         for k, v in reversed(self.mappings.items()):
@@ -150,6 +169,6 @@ if __name__ == "__main__":
         content = f.read()
 
     t = Tokenizer()
-    t.tokenize(content, 10)
+    t.fit(content, 10)
     t.print_mapping_counts()
     print(t.stats)
