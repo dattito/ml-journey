@@ -1,2 +1,4 @@
 bert_classifier_pipeline.pkl
 bert_classifier_pipeline
+binaryRating_title_train.csv
+binaryRating_title_test.csv
