@@ -1,0 +1,18 @@
+[project]
+name = "em-algorithm"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "jax>=0.8.0",
+    "polars>=1.35.1",
+    "seaborn>=0.13.2",
+]
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "pylance>=0.39.0",
+    "pyright>=1.1.407",
+]
