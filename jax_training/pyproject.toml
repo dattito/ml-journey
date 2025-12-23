@@ -1,0 +1,24 @@
+[project]
+name = "jax-training"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "datasets>=4.4.2",
+    "flax>=0.12.2",
+    "grain>=0.2.15",
+    "jax>=0.8.2",
+    "mlflow>=3.8.1",
+    "scikit-learn>=1.8.0",
+    "tensorflow>=2.20.0",
+    "torch>=2.9.1",
+    "tqdm>=4.67.1",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.12.0",
+    "jupyter>=1.1.1",
+    "ty>=0.0.7",
+]
