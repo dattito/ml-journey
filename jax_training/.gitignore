@@ -1,1 +1,5 @@
 mlflow.db
+tensorflow_logs
+.venv
+__pycache__
+output

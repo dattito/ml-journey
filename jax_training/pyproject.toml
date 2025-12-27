@@ -3,22 +3,27 @@ name = "jax-training"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = "~=3.13.0"
 dependencies = [
     "datasets>=4.4.2",
     "flax>=0.12.2",
     "grain>=0.2.15",
-    "jax>=0.8.2",
+    "jax>=0.8.0; sys_platform != 'linux'",
+    "jax[cuda12]>=0.8.0; sys_platform == 'linux'",
     "mlflow>=3.8.1",
+    "nvidia-ml-py>=13.590.44; sys_platform == 'linux'",
+    "orbax>=0.1.9",
     "scikit-learn>=1.8.0",
+    "tensorboardx>=2.6.4",
     "tensorflow>=2.20.0",
     "torch>=2.9.1",
     "tqdm>=4.67.1",
+    "transformers>=4.57.3",
 ]
 
 [dependency-groups]
 dev = [
     "black>=25.12.0",
     "jupyter>=1.1.1",
-    "ty>=0.0.7",
+    "ty>=0.0.10",
 ]
